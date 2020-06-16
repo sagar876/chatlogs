@@ -1,0 +1,41 @@
+body {
+  font-family: "Roboto";
+}
+.chatlogs-container {
+  padding: 25px;
+}
+.chat-img {
+  flex-basis: 8%;
+  cursor: pointer;
+}
+.chat-details {
+  flex-basis: 92%;
+}
+.chat-details p {
+  margin: 0;
+  font-size: 14px;
+}
+.chat-details .full-name {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.chatbox {
+  border: 1px solid #dedede;
+  background-color: #fbfbfb;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.time-right {
+  float: right;
+  font-size: 12px;
+  font-weight: 500;
+  color: #828282;
+}
+.chatbox img {
+  max-width: 35px;
+  border-radius: 50%;
+}

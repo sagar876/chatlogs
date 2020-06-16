@@ -1,0 +1,23 @@
+.chat-img {
+  position: relative;
+  display: inline-block;
+}
+
+.chat-img .tooltiptext {
+  visibility: hidden;
+  width: auto;
+  background-color: black;
+  color: #333;
+  text-align: center;
+  border-radius: 6px;
+  padding: 12px;
+  position: absolute;
+  left: 45px;
+  z-index: 1;
+  font-size: 12px;
+  background-color: #c7c1c1;
+}
+
+.chat-img:hover .tooltiptext {
+  visibility: visible;
+}
