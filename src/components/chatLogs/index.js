@@ -18,35 +18,43 @@ class ChatLogs extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps !== this.props) {
-      this.setUserMessages(nextProps);
+      this.createUserMessages(nextProps);
     }
   }
 
-  setUserMessages = data => {
+  createUserMessages = data => {
     const { chatMessages, users } = data;
     const userMessages = [];
-    users.forEach(user => {
+    const userDictionary = this.createUserDictionary(users);
+
+    Object.keys(userDictionary).length &&
       chatMessages.forEach(msg => {
-        if (user.id === msg.userId) {
-          userMessages.push({
-            messageId: msg.id,
-            userId: user.id,
-            fullName: `${user.firstName} ${user.lastName}`,
-            timestamp: msg.timestamp,
-            date: this.getFormattedDate(msg.timestamp),
-            email: user.email,
-            message: msg.message,
-            avatar: user.avatar
-          });
-        }
+        const currentUser = userDictionary[msg.userId];
+        userMessages.push({
+          messageId: msg.id,
+          userId: msg.userId,
+          fullName: `${currentUser.firstName} ${currentUser.lastName}`,
+          timestamp: msg.timestamp,
+          date: this.getFormattedDate(msg.timestamp),
+          email: currentUser.email,
+          message: msg.message,
+          avatar: currentUser.avatar
+        });
       });
-    });
     this.setState({
       userMessages: userMessages.sort(
         (a, b) =>
           new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
       )
     });
+  };
+
+  createUserDictionary = users => {
+    const data = {};
+    for (let i = 0; i < users.length; i++) {
+      data[users[i].id] = users[i];
+    }
+    return data;
   };
 
   getFormattedDate = d => {
