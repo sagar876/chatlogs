@@ -5,7 +5,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "json-server": "^0.16.1",
-    "moment": "2.25.1",
+    "moment": "2.29.4",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
